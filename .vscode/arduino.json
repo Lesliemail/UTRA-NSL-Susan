@@ -1,6 +1,0 @@
-{
-    "board": "arduino:avr:micro",
-    "port": "COM4",
-    "sketch": "potatomelt\\potatomelt.ino",
-    "output": ".build"
-}
