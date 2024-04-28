@@ -2,36 +2,8 @@
     "version": 4,
     "configurations": [
         {
-            "name": "Win32",
-            "compilerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29333\\bin\\Hostx64\\x64\\cl.exe",
-            "compilerArgs": [],
-            "intelliSenseMode": "windows-msvc-x64",
-            "includePath": [
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\**",
-                "C:\\Users\\Danielle\\Documents\\Arduino\\**",
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\**",
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino",
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\adafruit\\hardware\\avr\\1.4.15\\variants\\itsybitsy32u4",
-                "C:\\Users\\Danielle\\Documents\\Arduino\\libraries\\SparkFun_LIS331_Arduino_Library\\src",
-                "C:\\Users\\Danielle\\Documents\\Arduino\\libraries\\Adafruit_SleepyDog_Library",
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\adafruit\\hardware\\avr\\1.4.15\\libraries\\Wire",
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\libraries\\EEPROM\\src",
-                "C:\\Users\\Danielle\\Documents\\Arduino\\libraries\\IBusBM\\src",
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\libraries\\SPI\\src",
-                "c:\\users\\danielle\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include",
-                "c:\\users\\danielle\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include-fixed",
-                "c:\\users\\danielle\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\avr\\include"
-            ],
-            "forcedInclude": [],
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "defines": [
-                "USBCON"
-            ]
-        },
-        {
             "name": "Arduino",
-            "compilerPath": "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\bin\\avr-g++",
+            "compilerPath": "C:\\Users\\Derek\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\bin\\avr-g++",
             "compilerArgs": [
                 "-w",
                 "-std=gnu++11",
@@ -44,34 +16,29 @@
             ],
             "intelliSenseMode": "gcc-x64",
             "includePath": [
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino",
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\adafruit\\hardware\\avr\\1.4.15\\variants\\itsybitsy32u4",
-                "C:\\Users\\Danielle\\Documents\\Arduino\\libraries\\SparkFun_LIS331_Arduino_Library\\src",
-                "C:\\Users\\Danielle\\Documents\\Arduino\\libraries\\Adafruit_SleepyDog_Library",
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\adafruit\\hardware\\avr\\1.4.15\\libraries\\Wire",
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\libraries\\EEPROM\\src",
-                "C:\\Users\\Danielle\\Documents\\Arduino\\libraries\\DShot-Arduino-master\\src",
-                "C:\\Users\\Danielle\\Documents\\Arduino\\libraries\\IBusBM\\src",
-                "C:\\Users\\Danielle\\Documents\\Arduino\\libraries\\PID",
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\libraries\\SPI\\src",
-                "c:\\users\\danielle\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include",
-                "c:\\users\\danielle\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include-fixed",
-                "c:\\users\\danielle\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\avr\\include"
+                "C:\\Users\\Derek\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino",
+                "C:\\Users\\Derek\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\micro",
+                "C:\\Users\\Derek\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\libraries\\SPI\\src",
+                "C:\\Users\\Derek\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\libraries\\Wire\\src",
+                "C:\\Users\\Derek\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\libraries\\EEPROM\\src",
+                "c:\\users\\derek\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include",
+                "c:\\users\\derek\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\lib\\gcc\\avr\\7.3.0\\include-fixed",
+                "c:\\users\\derek\\appdata\\local\\arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\\avr\\include"
             ],
             "forcedInclude": [
-                "C:\\Users\\Danielle\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino\\Arduino.h"
+                "C:\\Users\\Derek\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino\\Arduino.h"
             ],
             "cStandard": "c11",
             "cppStandard": "c++11",
             "defines": [
                 "F_CPU=16000000L",
                 "ARDUINO=10607",
-                "ARDUINO_AVR_ITSYBITSY32U4_5V",
+                "ARDUINO_AVR_MICRO",
                 "ARDUINO_ARCH_AVR",
-                "USB_VID=0x239A",
-                "USB_PID=0x800E",
-                "USB_MANUFACTURER=\"Adafruit\"",
-                "USB_PRODUCT=\"ItsyBitsy 32u4 5V 16MHz\"",
+                "USB_VID=0x2341",
+                "USB_PID=0x8037",
+                "USB_MANUFACTURER=\"Unknown\"",
+                "USB_PRODUCT=\"Arduino Micro\"",
                 "__DBL_MIN_EXP__=(-125)",
                 "__HQ_FBIT__=15",
                 "__cpp_attributes=200809",
