@@ -24,9 +24,9 @@
 
 void service_watchdog()
 {
-#ifdef ENABLE_WATCHDOG
-	Watchdog.reset();
-#endif
+	// #ifdef ENABLE_WATCHDOG
+	// 	Watchdog.reset();
+	// #endif
 }
 
 // loops until a good RC signal is detected and throttle is zero (assures safe start)
@@ -58,10 +58,10 @@ void setup()
 	init_motors();
 	init_led();
 
-#ifdef ENABLE_WATCHDOG
-	// returns actual watchdog timeout MS
-	int watchdog_ms = Watchdog.enable(WATCH_DOG_TIMEOUT_MS);
-#endif
+	// #ifdef ENABLE_WATCHDOG
+	// 	// returns actual watchdog timeout MS
+	// 	int watchdog_ms = Watchdog.enable(WATCH_DOG_TIMEOUT_MS);
+	// #endif
 
 	init_rc();
 	init_accel(); // accelerometer uses i2c - which can fail blocking (so only initializing it -after- the watchdog is running)
@@ -238,6 +238,8 @@ static void handle_battery_crit()
 // main control loop
 void loop()
 {
+	Serial.println("test");
+	spin_one_iteration();
 
 	service_watchdog(); // keep the watchdog happy
 

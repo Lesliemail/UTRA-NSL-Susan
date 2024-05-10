@@ -9,7 +9,7 @@
 //490Hz PWM-throttle behavior is specific to Atmega32u4 (see below)
 
 //----------DIAGNOSTICS----------
-//#define JUST_DO_DIAGNOSTIC_LOOP                 //Disables the robot / just displays config / battery voltage / RC info via serial
+#define JUST_DO_DIAGNOSTIC_LOOP                 //Disables the robot / just displays config / battery voltage / RC info via serial
 
 //----------EEPROM----------
 #define ENABLE_EEPROM_STORAGE                     //Comment out this to disable EEPROM (for ARM)
@@ -49,7 +49,7 @@
 // On an Atmega32, pins 0 and 1 (rx and tx) map to Serial1
 // So that's where the receiver needs to be wired up
 
-#define HEADING_LED_PIN 13                        //To heading LED (pin 13 is on-board Arduino LED)
+#define HEADING_LED_PIN 16                        //To heading LED (pin 13 is on-board Arduino LED)
 
 //no configuration changes are needed if only 1 motor is used!
 #define MOTOR_PIN1 9                              //Pin for Motor 1 driver
