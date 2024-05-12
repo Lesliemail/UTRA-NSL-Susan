@@ -1,7 +1,7 @@
 #include "SparkFun_LIS331.h"
 #include <Arduino.h>
 
-#define ENABLE_WATCHDOG
+// #define ENABLE_WATCHDOG
 
 // See melty_config.h for configuration parameters
 
@@ -18,22 +18,27 @@
 #include "tank_control.h"
 #endif
 
-// #ifdef ENABLE_WATCHDOG
-// #include <Adafruit_SleepyDog.h>
-// #endif
+#ifdef ENABLE_WATCHDOG
+#include <Adafruit_SleepyDog.h>
+#endif
 
 void service_watchdog()
 {
-	// #ifdef ENABLE_WATCHDOG
-	// 	Watchdog.reset();
-	// #endif
+#ifdef ENABLE_WATCHDOG
+	Watchdog.reset();
+#endif
 }
 
 // loops until a good RC signal is detected and throttle is zero (assures safe start)
 static void wait_for_rc_good_and_zero_throttle()
 {
+	Serial.println("wait for rc good and zero throttle");
 	while (rc_signal_is_healthy() == false || rc_get_throttle_perk() > 0)
 	{
+		Serial.print(rc_signal_is_healthy());
+		Serial.print(", ");
+		Serial.println(rc_get_throttle_perk());
+
 		disable_spin();
 
 		//"slow on/off" for LED while waiting for signal
@@ -51,17 +56,18 @@ static void wait_for_rc_good_and_zero_throttle()
 // Arduino initial setup function
 void setup()
 {
-
+	delay(5000);
 	Serial.begin(115200);
+	Serial.println("setup");
 
 	// get motor drivers setup (and off!) first thing
 	init_motors();
 	init_led();
 
-	// #ifdef ENABLE_WATCHDOG
-	// 	// returns actual watchdog timeout MS
-	// 	int watchdog_ms = Watchdog.enable(WATCH_DOG_TIMEOUT_MS);
-	// #endif
+#ifdef ENABLE_WATCHDOG
+	// returns actual watchdog timeout MS
+	int watchdog_ms = Watchdog.enable(WATCH_DOG_TIMEOUT_MS);
+#endif
 
 	init_rc();
 	init_accel(); // accelerometer uses i2c - which can fail blocking (so only initializing it -after- the watchdog is running)
@@ -97,7 +103,6 @@ void setup()
 // dumps out diagnostics info
 static void echo_diagnostics()
 {
-
 	Serial.print("Raw Accel G: ");
 	Serial.print(get_accel_force_g());
 	Serial.print("  RC Health: ");
@@ -126,6 +131,7 @@ static void echo_diagnostics()
 // Used to flash out max recorded RPM 100's of RPMs
 static void display_rpm_if_requested()
 {
+	Serial.println("display rpm if requested");
 	// triggered by user pushing throttle up while bot is at idle for 750ms
 	if (rc_get_forback_bit() == RC_FORBACK_FORWARD)
 	{
@@ -151,6 +157,7 @@ static void display_rpm_if_requested()
 // checks if user has requested to enter / exit config mode
 static void check_config_mode()
 {
+	Serial.println("check config mode");
 	// if user pulls control stick back for 750ms - enters (or exits) interactive configuration mode
 	if (rc_get_forback_bit() == RC_FORBACK_BACKWARD)
 	{
@@ -185,7 +192,7 @@ static void check_accel_config_clear()
 // handles the bot when not spinning (with RC good)
 static void handle_bot_idle()
 {
-
+	Serial.println("bot idle");
 	disable_spin(); // assure motors are off
 
 	// normal LED "fast flash" - indicates RC signal is good while sitting idle
@@ -214,6 +221,7 @@ static void handle_bot_idle()
 
 static void handle_battery_crit()
 {
+	Serial.println("battery crit");
 	disable_spin();
 
 	// "-..." : Morse 'B' for Battery
@@ -238,7 +246,7 @@ static void handle_battery_crit()
 // main control loop
 void loop()
 {
-	Serial.println("test");
+	// Serial.println("looping");
 	spin_one_iteration();
 
 	service_watchdog(); // keep the watchdog happy
@@ -282,6 +290,7 @@ void loop()
 	// if RC is good - and throtte is above 0 - spin a single rotation
 	if (rc_get_throttle_perk() > 0)
 	{
+		Serial.println("should be spinning");
 		// this is where all the motor control happens!  (see spin_control.cpp)
 		enable_spin();
 		spin_one_iteration();

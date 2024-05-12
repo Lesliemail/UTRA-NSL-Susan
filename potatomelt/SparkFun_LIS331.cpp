@@ -410,4 +410,3 @@ void LIS331::LIS331_read(uint8_t reg_address, uint8_t *data, uint8_t len)
     digitalWrite(CSPin, HIGH);
   }
 }
-

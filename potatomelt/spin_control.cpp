@@ -347,6 +347,7 @@ void enable_spin()
 {
 	if (!melty_parameters.spin_enabled)
 	{
+		Serial.println("enabling spin");
 		// Start the PID
 		throttle_pid.SetMode(AUTOMATIC);
 
@@ -360,6 +361,7 @@ void enable_spin()
 //(repeat as needed)
 void spin_one_iteration(void)
 {
+	Serial.println("spinning?");
 	get_melty_parameters(&melty_parameters);
 	delay(20);
 }
