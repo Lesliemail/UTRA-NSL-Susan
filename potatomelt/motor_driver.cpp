@@ -62,6 +62,7 @@ void configure_motors(int config_code)
 
 void motors_off()
 {
+	Serial.println("turning motors off");
 	motor1.setThrottle(0);
 	motor2.setThrottle(0);
 }
@@ -71,4 +72,5 @@ void init_motors()
 	motor1.attach(MOTOR_PIN1);
 	motor2.attach(MOTOR_PIN2);
 	motors_off();
+	delay(3000);
 }

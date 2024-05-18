@@ -246,7 +246,7 @@ static void handle_battery_crit()
 // main control loop
 void loop()
 {
-	// Serial.println("looping");
+	Serial.println("looping");
 	spin_one_iteration();
 
 	service_watchdog(); // keep the watchdog happy
@@ -263,6 +263,7 @@ void loop()
 	// this will interrupt a spun-up bot if the signal becomes bad
 	if (rc_signal_is_healthy() == false)
 	{
+		Serial.print("rc_signal not healthy");
 		disable_spin();
 
 		heading_led_on(0);

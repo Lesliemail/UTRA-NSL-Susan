@@ -361,7 +361,8 @@ void enable_spin()
 //(repeat as needed)
 void spin_one_iteration(void)
 {
-	Serial.println("spinning?");
+	Serial.print("spinning? ");
+	Serial.println(melty_parameters.spin_enabled);
 	get_melty_parameters(&melty_parameters);
 	delay(20);
 }
